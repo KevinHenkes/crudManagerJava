@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?> <!DOCTYPE rootElement>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	version="2.0">
+	<persistence-unit name="My-PU" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+		<property name="connection.url">jdbc:mysql://localhost:3306/supcommerce</property>
+		<property name="connection.username">supcommerce</property>
+		<property name="connection.password">supcommerce</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence>

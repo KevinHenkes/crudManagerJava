@@ -1,15 +1,14 @@
 package fr.imie.supcommerce.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name="Product")
@@ -32,6 +31,7 @@ public class Product implements Serializable {
 	@ManyToOne
 	private Category category;
 
+	@XmlTransient
 	public Category getCategory() {
 		return category;
 	}
@@ -42,10 +42,6 @@ public class Product implements Serializable {
 
 	public Product() {
 	}
-	
-	public Product(ArrayList<String> values) {
-        this(values.get(0), values.get(1), Float.valueOf(values.get(2)));
-    }
 	
 	public Product(String name, String description, Float price) {
 		this.name = name;

@@ -1,6 +1,6 @@
 package fr.imie.supcommerce.entity;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,8 +24,8 @@ public class Category implements Serializable {
 	
 	private String name;
 	
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="category")
-	private List<Product> products;
+	@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
+	private Collection<Product> products;
 	
 	public Category() {
 		
@@ -45,11 +45,11 @@ public class Category implements Serializable {
 	}
 
 	
-	public List<Product> getProducts() {
+	public Collection<Product> getProducts() {
 		return products;
 	}
 
-	public void setProducts(List<Product> products) {
+	public void setProducts(Collection<Product> products) {
 		this.products = products;
 	}
 	
